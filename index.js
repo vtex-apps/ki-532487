@@ -29,7 +29,7 @@ function shippingValue(orderForm) {
     let price = orderForm.totalizers[1].value;
     const locale = orderForm.clientPreferencesData.locale;
     const currency = orderForm.storePreferencesData.currencyCode;
-    const formattedPrice = formatValue(5, locale, currency) || price;
+    const formattedPrice = formatValue(price, locale, currency) || price;
 
     $("#shipping-preview-container .srp-shipping-current-single__price").html(
       "$ " + formattedPrice
