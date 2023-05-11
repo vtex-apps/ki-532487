@@ -29,11 +29,13 @@ function shippingValue(orderForm) {
     let price = orderForm.totalizers[1].value;
     const locale = orderForm.clientPreferencesData.locale;
     const currency = orderForm.storePreferencesData.currencyCode;
-    const formattedPrice = formatValue(price, locale, currency) || price;
+    const formattedPrice = formatValue(price, locale, currency);
 
-    $("#shipping-preview-container .srp-shipping-current-single__price").html(
-      "$ " + formattedPrice
-    );
+    if (formattedPrice) {
+      $("#shipping-preview-container .srp-shipping-current-single__price").html(
+        "$ " + formattedPrice
+      );
+    }
   }
 }
 
